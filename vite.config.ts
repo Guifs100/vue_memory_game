@@ -12,6 +12,13 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
   ],
+  server: {
+    host: '0.0.0.0',         // <- isso é essencial
+    port: 5173,
+    watch: {
+      usePolling: true       // <- importante pra Docker
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
